@@ -13,10 +13,10 @@
         "sizes": "512x512"
       }
     ],
-    "start_url": "/",
+    "start_url": "/Minimal-Web-App/",
     "background_color": "#ba34eb",
     "display": "standalone",
-    "scope": "/",
+    "scope": "/Minimal-Web-App/",
     "theme_color": "#ba34eb",
     "description": "This is a description"
   }
