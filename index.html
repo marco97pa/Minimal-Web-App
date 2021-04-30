@@ -60,9 +60,10 @@
     <body style="background-color: #5d1b75;  text-align: center; vertical-align: middle; margin-top: 200px;">
         <h1 style="color: white;">Minimal Web App</h1>
         <a href="https://github.com/marco97pa/Minimal-Web-App/" style="color: wheat;">source</a>
-        <div id="install" style="margin: 50px 5em; color: wheat; border: 2px solid wheat; display: none;">INSTALL</div>
+        <div id="install" style="margin: 50px 5em; color: wheat; border: 2px solid wheat; display: none; cursor: pointer;">INSTALL</div>
         
         <script>
+            //Register service worker
             if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./sw.js').then(function(reg) {
                 console.log('Successfully registered service worker', reg);
@@ -70,7 +71,9 @@
                 console.warn('Error whilst registering service worker', err);
             });
             }
-
+            
+            //HANDLE INSTALLATION
+            //Before Install
             const divInstall = document.getElementById('install');
             window.addEventListener('beforeinstallprompt', (event) => {
                 console.log('👍', 'beforeinstallprompt', event);
@@ -80,6 +83,7 @@
                 divInstall.style.display = "block";
             });
 
+            //Install button
             divInstall.addEventListener('click', async () => {
                 console.log('👍', 'divInstall-clicked');
                 const promptEvent = window.deferredPrompt;
