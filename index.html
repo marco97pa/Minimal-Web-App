@@ -62,17 +62,13 @@
         <a href="https://github.com/marco97pa/Minimal-Web-App/" style="color: wheat;">source</a>
         
         <script>
-            if ('serviceWorker'in navigator) {
-            navigator.serviceWorker.register('/sw.js', {
-                scope: '/'
-            }).then(function(registration) {
-                console.log('Service Worker Registered');
+            if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').then(function(reg) {
+                console.log('Successfully registered service worker', reg);
+            }).catch(function(err) {
+                console.warn('Error whilst registering service worker', err);
             });
-
-            navigator.serviceWorker.ready.then(function(registration) {
-                console.log('Service Worker Ready');
-            });
-        }
+            }
         </script>
     </body>
 </html>
